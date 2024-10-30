@@ -353,23 +353,33 @@ class _CupertinoControlsState extends State<CupertinoControls>
         widget.showPlayButton && !_latestValue.isPlaying && !_dragging;
 
     return GestureDetector(
-      onTap: _latestValue.isPlaying
+       // onTap: _latestValue.isPlaying
+       //    ? _cancelAndRestartTimer
+       //    : () {
+       //        _hideTimer?.cancel();
+
+       //        setState(() {
+       //          notifier.hideStuff = false;
+       //        });
+       //      },
+      onTap: notifier.hideStuff
           ? _cancelAndRestartTimer
           : () {
               _hideTimer?.cancel();
 
               setState(() {
-                notifier.hideStuff = false;
+                notifier.hideStuff = true;
               });
             },
-      child: CenterPlayButton(
-        backgroundColor: widget.backgroundColor,
-        iconColor: widget.iconColor,
-        isFinished: isFinished,
-        isPlaying: controller.value.isPlaying,
-        show: showPlayButton,
-        onPressed: _playPause,
-      ),
+      child: Container(),
+      //   child: CenterPlayButton(
+      //   backgroundColor: widget.backgroundColor,
+      //   iconColor: widget.iconColor,
+      //   isFinished: isFinished,
+      //   isPlaying: controller.value.isPlaying,
+      //   show: showPlayButton,
+      //   onPressed: _playPause,
+      // ),
     );
   }
 
