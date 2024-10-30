@@ -365,7 +365,8 @@ class _CupertinoControlsState extends State<CupertinoControls>
       onTap: notifier.hideStuff
           ? _cancelAndRestartTimer
           : () {
-              _hideTimer?.cancel();
+              // _hideTimer?.cancel();
+            print("Hidinggg stuff");
 
               setState(() {
                 notifier.hideStuff = true;
